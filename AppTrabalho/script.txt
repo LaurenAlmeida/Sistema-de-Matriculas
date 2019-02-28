@@ -1,0 +1,4 @@
+create table cursos (codigo int primary key,nome varchar(255),preRequisito varchar(255),cargaHora int,valor float,situacao int);
+create table turmas (cod int primary key,turno varchar(255),dtIni date,dtFim date,hrIni time,hrFim time,qtdVagas int,situacao int,cod_curso int,foreign key (cod_curso) REFERENCES cursos(codigo));
+create table matriculas (id_matricula int primary key,data date,formaPagto int,matricula int,cod int,codigo int,situacao int,foreign key (matricula) REFERENCES alunos (matricula),foreign key (cod) REFERENCES turmas(cod),foreign key (codigo) REFERENCES cursos(codigo)) ;
+create table alunos (cpf int,rg int,matricula int primary key,nome varchar(255),fone varchar(30),endereco varchar (255),situacao int);
